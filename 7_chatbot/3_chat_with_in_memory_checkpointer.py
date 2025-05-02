@@ -4,12 +4,13 @@ from langchain_groq import ChatGroq
 from langchain_core.messages import AIMessage, HumanMessage
 from dotenv import load_dotenv
 from langgraph.checkpoint.memory import MemorySaver
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
 memory = MemorySaver()
 
-llm = ChatGroq(model="llama-3.1-8b-instant")
+llm = ChatOpenAI(model="gpt-4.1")
 
 class BasicChatState(TypedDict): 
     messages: Annotated[list, add_messages]
